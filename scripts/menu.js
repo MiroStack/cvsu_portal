@@ -19,7 +19,7 @@ logout.addEventListener("click", ()=>{
     const removeUser = "";
     sessionStorage.setItem("authToken", removeToken);
     sessionStorage.setItem("user", removeUser);
-    window.location.href = "/ppss-login/ppss-login.html";
+    window.location.href = "..~/ppss-login/ppss-login.html";
 });
 
 function activeLink() {
