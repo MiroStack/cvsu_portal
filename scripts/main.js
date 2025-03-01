@@ -2,7 +2,7 @@ export const baseUrl = "http://localhost:8080/cvsu";
 
 
 export const dashboard = () =>{
-    window.location.href = "../ppss-login/dashboard-ppss.html"
+    window.location.href = "./dashboard-ppss.html"
 }
 
 let token;  // Module-scoped variable (not exported)

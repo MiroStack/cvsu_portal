@@ -1,4 +1,4 @@
-import { baseUrl, getToken, dashboard } from "../scripts/main.js";
+import { baseUrl, dashboard, getToken } from "./main.js";
 
  document.addEventListener("DOMContentLoaded", async () =>{
  

@@ -1,6 +1,6 @@
-import { baseUrl, dashboard, setToken } from "../scripts/main.js";
-
-
+import { baseUrl, dashboard, setToken } from "./main.js";
+document.addEventListener("DOMContentLoaded", ()=>{
+console.log("test login");
 const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.querySelector("#register");
 const loginForm = document.querySelector(".login-form");
@@ -11,7 +11,7 @@ const authToken = sessionStorage.getItem("authToken");
 const loadingContainer = document.querySelector(".container-loader");
 const formContainer = document.querySelector(".form-container")
 
-
+console.log("login");
 const validateToken = async (authToken)=>{
     try{
        const response = await fetch(`${baseUrl}/validate?token=${authToken}`,{
@@ -49,12 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-
-
 // **Login Handler**
-document.getElementById("loginBtn").addEventListener("click", async () => {
+loginBtn.addEventListener("click", async () => {
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
     loadingContainer.style.display = "flex";
@@ -95,6 +91,4 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
         alert("Something went wrong. Try again later.");
     }
 });
-
-
-
+});

@@ -131,48 +131,19 @@ body {
     opacity: 0.85;
 }
 
-/* login form */
+
 .login-form {
+    width: 100%;
     position: absolute;
-    left: 50%; /* Center on screen */
-    opacity: 1; /* Visible by default */
-    transform: translateX(-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1; /* Initially hidden */
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: center;
     padding: 0 4vw;
-    transition: left 0.3s ease, opacity 0.3s ease;
-}
-
-/* register form */
-.register-form {
-    position: absolute;
-    left: -50%; /* Off-screen */
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 4vw;
-    transition: left 0.3s ease, opacity 0.3s ease;
-}
-.register-form .form-title{
-    margin-block: 40px 20px;
-}
-
-.login-form, .register-form {
-    position: absolute;
-    left: -50%; /* Off-screen initially */
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 4vw;
-    transition: left 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
 }
 
 .form-title{

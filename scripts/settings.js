@@ -1,4 +1,4 @@
-import { baseUrl, getToken, dashboard } from "../scripts/main.js";
+import { baseUrl, dashboard, getToken } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const loaderContainer = document.querySelector(".container-loader");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const removeUser = "";
                         sessionStorage.setItem("authToken", removeToken);
                         sessionStorage.setItem("user", removeUser);
-                        window.location.href = "../ppss-login/ppss-login.html";
+                        window.location.href = "./ppss-login.html";
                        
                     }
                     else{

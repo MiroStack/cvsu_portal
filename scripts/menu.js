@@ -12,14 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("User data not found in sessionStorage.");
     }
-});
+
 
 logout.addEventListener("click", ()=>{
     const removeToken = "";
     const removeUser = "";
     sessionStorage.setItem("authToken", removeToken);
     sessionStorage.setItem("user", removeUser);
-    window.location.href = "..~/ppss-login/ppss-login.html";
+    window.location.href = "./ppss-login.html";
 });
 
 function activeLink() {
@@ -48,4 +48,14 @@ let main = document.querySelector(".main");
 toggle.onclick = function () {
     navigation.classList.toggle("active");
     main.classList.toggle("active");
+    // Check if it's currently displayed, then toggle properly
+    if (username.style.display === "none") {
+        username.style.display = "block";
+        userRole.style.display = "block";
+    } else {
+        username.style.display = "none";
+        userRole.style.display = "none";
+    }
 };
+
+});
