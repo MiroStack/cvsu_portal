@@ -1,0 +1,78 @@
+/* General Styling for the Settings Form */
+.settings-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    max-width: 600px;
+    margin-left: 5%;
+  }
+  
+  .settings-form .form-label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .settings-form .form-control {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #35424a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #e8491d;
+  }
+  
+  .alert {
+    font-size: 1rem;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .is-invalid {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+  }
+  
+  .form-control {
+    position: relative;
+  }
+  
+  .error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dc3545;
+    display: none;
+  }
+  
+  .form-control:invalid + .error-icon {
+    display: block;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  .form-control:invalid {
+    border-color: #dc3545;
+  }
+  
+  .form-control:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+  
+  

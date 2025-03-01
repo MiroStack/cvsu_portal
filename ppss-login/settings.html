@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="icon" type="image/x-icon" href="./styles/img/mini-logo.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CSS -->
+   <!-- Latest Bootstrap CSS -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-TIArzD/9pJEm1g1Ntr5ox46dXpCtaP/6vuQx36tC5B+Il72w5yIayjIqXhGdJ48k"
+    crossorigin="anonymous">
+
+    <!-- Latest Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JFz6/ZlPQ9NPoKdtNkHQIGe97FvKw5OLAd/gwb3rgt5Ual2F8cuwsD1cr8mNCaLh"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./ppss-login/ppss-styles/settings.css">
+    <link rel="stylesheet" href="../styles/menu.css">
+    <script>
+        $(document).ready(function(){
+            const user = JSON.parse(sessionStorage.getItem("user"));
+            if(user){
+               $("#currentUsername").val(user.username);
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="custom-container">
+        <div class="custom-navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="logo">
+                            <img src="../styles/img/mkiosk-yellow-fill.png" alt="Logo" class="logo-image">
+                        </span>
+                        <span class="title-page"> M-KIOSK: CvSU Naic </span>
+                    </a>
+                </li>
+                <div class="user_profile_ctn">
+                    <h2 id="userFullname"></h2>
+                    <h3 id="userRole"></h3>
+                </div>
+                <hr>
+
+                <li >
+                    <a href="./ppss-login/dashboard-ppss.html">
+                        <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
+                        <span class="title"> Dashboard </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./ppss-login/edit.html">
+                        <span class="icon"> <ion-icon name="create-outline"></ion-icon> </span>
+                        <span class="title"> Edit Building </span>
+                    </a>
+                </li>
+                <li >
+                    <a href="./ppss-login/add_building.html">
+                        <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
+                        <span class="title"> Add Building </span>
+                    </a>
+                </li>
+                <li >
+                    <a href="./ppss-login/add_account.html">
+                        <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
+                        <span class="title"> Add Account </span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="logout-container">
+                <li class="settings active-page">
+                    <a href="./ppss-login/settings.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="#">
+                        <span class="icon"> <ion-icon name="log-out-outline"></ion-icon> </span>
+                        <span class="title"> Logout </span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+         </div>  
+        <!-- Settings Form -->
+        <div class="settings-container">
+            <h2 class="text-center">Update Your Account Settings</h2>
+            <div class="container-loader">
+                <div class="loader">
+                
+                </div>
+                <p>Please wait.</p>
+            </div>
+
+                <!-- Username and Password Form -->
+                <form id="settingsForm" class="settings-form">
+                    <div class="mb-3">
+                        <label for="currentUsername" class="form-label">Current Username</label>
+                        <input type="text" class="form-control" name="currentUsername" id="currentUsername" placeholder="Enter your current username" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="newUsername" class="form-label">New Username</label>
+                        <input type="text" class="form-control" name="newUsername" id="newUsername" placeholder="Enter your new username" required>
+                        <label for="checkboxCurrent">Current</label>
+                         <input type="checkbox" name="checkboxCurrent" id="checkboxCurrent" class="form-check-input" onclick="document.getElementById('newUsername').value = document.getElementById('currentUsername').value;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" name="currentPassword" id="currentPassword" placeholder="Enter your current password" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">New Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your new password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm your new password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Update Settings</button>
+                </form>
+
+                <div id="successMessage" class="alert alert-success mt-4" style="display: none;">
+                    <strong>Success!</strong> Your settings have been updated.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ionic -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- script -->
+    <script type="module" src="./ppss-login/ppss-js/settings.js"></script>
+    <script type="module" src="../scripts/main.js"></script>
+    <script src="../scripts/menu.js"></script>
+</body>
+</html>

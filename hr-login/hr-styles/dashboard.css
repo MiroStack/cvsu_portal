@@ -1,0 +1,59 @@
+.main-content {
+    margin-left: 300px;
+    padding: 20px;
+    transition: margin-left 0.5s;
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.main-content.active {
+    margin-left: 80px;
+}
+
+/* Custom styling for table */
+.table {
+    margin-top: 20px;
+}
+
+.table th {
+    text-align: center;
+    font-weight: bold;
+}
+
+.table td {
+    text-align: center;
+}
+
+/* Hover effect for rows */
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add some spacing between table rows */
+.table td, .table th {
+    padding: 15px;
+}
+
+/* Apply border radius for a smoother look */
+.table-bordered {
+    border-radius: 8px;
+}
+
+/* Style for the label above the table */
+#tableLabel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Custom styling for active buttons */
+.btn-group .btn.active {
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    color: #fff; /* White text */
+    border-color: #0d6efd; /* Match the border to the background */
+}

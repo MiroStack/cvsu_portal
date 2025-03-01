@@ -1,0 +1,105 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url("../styles/img/bg-cvsu-nc-10.jpg");
+    backdrop-filter: blur(3px);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 20px;
+    margin: 0;
+    height: 100vh; /* Full height of the viewport */
+    align-items: center; /* Center the container vertically and horizontally */
+}
+
+.container {
+    max-width: 600px; /* You can adjust this to make the container width appropriate */
+    width: 100%; /* Ensures the container uses 100% width of its parent */
+    height: auto; /* The height will adjust based on the content */
+    padding: 0; /* Remove any padding around the container */
+    /* border: 3px solid #ffff00ce; */
+    border-radius: 30px;
+    /* backdrop-filter: blur(20px); */
+    background-color: #80808081;
+    border: 3px solid rgba(255, 255, 255, 0.233);
+    overflow: hidden;
+    
+    /* Animation properties */
+    opacity: 0; /* Initial state: transparent */
+    transform: translateY(-50px); /* Initial state: move slightly up */
+    transition: all 0.8s ease-in-out; /* Smooth transition effect */
+}
+
+.container.slide-in {
+    opacity: 1; /* Final state: fully visible */
+    transform: translateY(0); /* Final state: normal position */
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Card should take the full width of the container */
+    height: auto; /* Allow the card height to adjust based on the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+}
+
+.card-header {
+    background-color: #3B8132;
+    height: 50px; /* Set a fixed height for the header */
+    width: 100%; /* Make the header span the full width */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+.card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center horizontally */
+}
+
+.card-body h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px; /* Reduced bottom margin */
+    margin-top: -10px; /* Added negative margin to move it up */
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button {
+    height: 60px;
+    width: 180px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    text-transform: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 8px; /* Add margin to the right of each button */
+}
+
+.button:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.button:hover {
+    color: black;
+    background-color: white;
+}

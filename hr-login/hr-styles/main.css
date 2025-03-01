@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --green: #3B8132;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --yellow: #FFA823;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.custom-container {
+    position: relative;
+    width: 100%;
+}
+
+/* navi */
+.custom-navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--green);
+    border-left: 10px solid var(--green);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.custom-navigation.active {
+    width: 80px;
+}
+
+.custom-navigation ul {
+    position: absolute;
+    display: contents;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.custom-navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.custom-navigation ul li:hover,
+.custom-navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.custom-navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.custom-navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.custom-navigation ul li:hover a,
+.custom-navigation ul li.hovered a {
+    color: var(--green);
+}
+
+.custom-navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.custom-navigation ul li a .icon ion-icon {
+    font-size: 1.75rem;
+} 
+
+.custom-navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap; 
+}
+
+.custom-navigation ul li a .logo {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.custom-navigation ul li a .logo .logo-image {
+    width: 75px;  /* Adjust the size as needed */
+    height: 75px; /* Adjust the size as needed */
+    object-fit: contain; /* Ensures the image fits inside the container */
+}
+
+.custom-navigation ul li a .title-page {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 70px;
+    line-height: 80px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.custom-navigation ul li:hover a::before,
+.custom-navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.custom-navigation ul li:hover a::after,
+.custom-navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/* Active Page Styling */
+.custom-navigation ul li.active-page,
+.custom-navigation ul li.active-page:hover {
+    background-color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.custom-navigation ul li.active-page a,
+.custom-navigation ul li.active-page:hover a {
+    color: var(--green);
+}
+
+/* Arch Effect for Active Page */
+.custom-navigation ul li.active-page a::before,
+.custom-navigation ul li.active-page a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.custom-navigation ul li.active-page a::before {
+    top: -50px;
+    box-shadow: 35px 35px 0 10px var(--white); /* Top Arch */
+}
+
+.custom-navigation ul li.active-page a::after {
+    bottom: -50px;
+    box-shadow: 35px -35px 0 10px var(--white); /* Bottom Arch */
+}
+
+/* Hover Effect for Non-Active Pages */
+.custom-navigation ul li:hover {
+    background-color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.custom-navigation ul li:hover a {
+    color: var(--green);
+}
+
+/* Arch Effect for Hovered Pages */
+.custom-navigation ul li:hover a::before,
+.custom-navigation ul li:hover a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.custom-navigation ul li:hover a::before {
+    top: -50px;
+    box-shadow: 35px 35px 0 10px var(--white);
+}
+
+.custom-navigation ul li:hover a::after {
+    bottom: -50px;
+    box-shadow: 35px -35px 0 10px var(--white);
+}
+
+/*LOG OUT*/
+.logout-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the value if needed */
+    width: 100%;
+}
+
+.logout-container {
+    position: absolute;
+    bottom: 20px; /* Adjust this value as needed */
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Optional: Add spacing between Settings and Logout */
+}
+
+.logout-container .settings,
+.logout-container .logout {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.logout-container .settings:hover,
+.logout-container .logout:hover,
+.logout-container .settings.hovered,
+.logout-container .logout.hovered {
+    background-color: var(--white);
+}
+
+.logout-container .settings a,
+.logout-container .logout a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.logout-container .settings:hover a,
+.logout-container .logout:hover a,
+.logout-container .settings.hovered a,
+.logout-container .logout.hovered a {
+    color: var(--green);
+}
+
+.logout-container .settings a .icon,
+.logout-container .logout a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.logout-container .settings a .icon ion-icon,
+.logout-container .logout a .icon ion-icon {
+    font-size: 1.75rem;
+}
+
+.logout-container .settings a .title,
+.logout-container .logout a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.logout-container .settings:hover a::before,
+.logout-container .logout:hover a::before,
+.logout-container .settings.hovered a::before,
+.logout-container .logout.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.logout-container .settings:hover a::after,
+.logout-container .logout:hover a::after,
+.logout-container .settings.hovered a::after,
+.logout-container .logout.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/* Settings Active Page Styling */
+.logout-container .settings.active-page,
+.logout-container .settings.active-page:hover {
+    background-color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.logout-container .settings.active-page a,
+.logout-container .settings.active-page:hover a {
+    color: var(--green);
+}
+
+/* Arch Effect for Active Settings Page */
+.logout-container .settings.active-page a::before,
+.logout-container .settings.active-page a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.logout-container .settings.active-page a::before {
+    top: -50px;
+    box-shadow: 35px 35px 0 10px var(--white); /* Top Arch */
+}
+
+.logout-container .settings.active-page a::after {
+    bottom: -50px;
+    box-shadow: 35px -35px 0 10px var(--white); /* Bottom Arch */
+}
+
+/* Hover Effect for Non-Active Pages */
+.logout-container .settings:hover {
+    background-color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.logout-container .settings:hover a {
+    color: var(--green);
+}
+
+/* Arch Effect for Hovered Pages */
+.logout-container .settings:hover a::before,
+.logout-container .settings:hover a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.logout-container .settings:hover a::before {
+    top: -50px;
+    box-shadow: 35px 35px 0 10px var(--white); /* Top Arch */
+}
+
+.logout-container .settings:hover a::after {
+    bottom: -50px;
+    box-shadow: 35px -35px 0 10px var(--white); /* Bottom Arch */
+}
+
+
+
+/* main */
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+/* user */
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user ion-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .custom-navigation {
+        left: -300px;
+    }
+
+    .custom-navigation.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main.active .toggle {
+        color: #fff;
+        position: fixed;
+        right: 0;
+        left: initial;
+    }
+}

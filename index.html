@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="icon" type="image/x-icon" href="/styles/img/mini-logo.ico">
+    <!-- Bootstrap and Fonts -->
+   <!-- Latest Bootstrap CSS -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-TIArzD/9pJEm1g1Ntr5ox46dXpCtaP/6vuQx36tC5B+Il72w5yIayjIqXhGdJ48k"
+    crossorigin="anonymous">
+
+    <!-- Latest Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JFz6/ZlPQ9NPoKdtNkHQIGe97FvKw5OLAd/gwb3rgt5Ual2F8cuwsD1cr8mNCaLh"
+    crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/index.css">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body text-center">
+                        <h2> LOGIN FOR </h2>
+                        <div class="button-container mt-4">
+                            <a href="/ppss-login/ppss-login.html"><button class="button" type="submit" name="admin" value="ppss"> PPSS Login </button></a>
+                            <a href="/hr-login/hr-login.html"><button class="button" type="submit" name="admin" value="hr"> HR Login </button></a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qIczw8+ktdnOhC7LU5H/T9kt8+sPErlNRvS1nPnJfHRgvfhQcThB7WVTrAMsnuC5" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector('.container');
+            if (container) {
+                container.classList.add('slide-in');
+            }
+        });
+                // Prevent back navigation after login
+        document.addEventListener("DOMContentLoaded", function () {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.pushState(null, null, location.href);
+            };
+        });
+
+    </script>   
+
+</body>
+
+</html>
