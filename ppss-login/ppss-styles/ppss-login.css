@@ -9,7 +9,7 @@
 }
 
 body {
-    background: url("../styles/img/bg-cvsu-nc-12.jpg");
+    background: url("/styles/img/bg-cvsu-nc-12.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
