@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:8080/cvsu";
+export const baseUrl = "https://cvsunaicapi-production.up.railway.app/cvsu";
 
 
 export const dashboard = () =>{
