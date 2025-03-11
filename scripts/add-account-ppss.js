@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", ()=>  {
             username: formData.get("username"),
             password: formData.get("password"),
             confirmPassword: formData.get("confirm_password"),
-            canCreateAccount: formData.get("allowCreateUser"),
         };
 
        if(data.password === data.confirmPassword){
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", ()=>  {
             lastname: data.lastname,
             username: data.username,
             password: data.password,
-            canCreateAccount: data.canCreateAccount ?? false,
             createdById: userData.id
         });
         console.log(queryParams.canCreateAccount);
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", ()=>  {
                 form.reset();
                 loaderContainer.style.display = "none";
                 addAccountForm.style.display = "block";
-                dashboard();
+                window.location.reload();
 
             } else {
                 const errorData = await response.json();

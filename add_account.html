@@ -40,7 +40,7 @@
                 <li >
                     <a href="./dashboard-ppss.html">
                         <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
-                        <span class="title"> Dashboard </span>
+                        <span class="title"> Homepage </span>
                     </a>
                 </li>
                 <li>
@@ -55,10 +55,16 @@
                         <span class="title"> Add Building </span>
                     </a>
                 </li>
-                <li class="active-page">
-                    <a href="./add_account.html">
+                <li class="active-page" id="add_account">
+                    <a href="./add_account.html" >
                         <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                         <span class="title"> Add Account </span>
+                    </a>
+                </li>
+                <li id="manage_account">
+                    <a href="./manage_account.html">
+                        <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+                        <span class="title"> Manage Accounts </span>
                     </a>
                 </li>
             </ul>
@@ -76,6 +82,7 @@
                         <span class="title"> Logout </span>
                     </a>
                 </li>
+              
             </div>
         </div>
     </div>
@@ -86,7 +93,7 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
          </div>  
-        <div class="add_account_ctn" style="height: 100vh; display: flex; justify-content: center; flex-direction: column;">
+        <div class="add_account_ctn py-5" style="height: 100vh;">
             <header class="text-center">
                 <h1>Add New Account</h1>
             </header>
@@ -118,10 +125,7 @@
                     <label for="confirm_password" class="form-label">Confirm Password:</label>
                     <input type="password"  name="confirm_password" id="confirm_password" class="form-control" required>
             
-                    <label for="role" class="form-label">Allow create user:</label>
-                    <input type="checkbox" name="allowCreateUser" style="transform: scale(1.5);" id="allowCreateUser" class="m-3" ><br>
-            
-                    <button type="submit" class="btn btn-danger my-3 ">Add Account</button>
+                    <button type="submit" class="btn btn-danger my-3 w-100">Add Account</button>
                 </div>
             </form> <!-- Ensure correct closing tag -->
             

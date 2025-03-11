@@ -1,10 +1,13 @@
 let list = document.querySelectorAll(".custom-navigation li");
 const logout = document.querySelector(".logout")
-
+const user = JSON.parse(sessionStorage.getItem("user"));
+const username = document.getElementById("userFullname");
+const userRole = document.getElementById("userRole");
+const position = user.position;
+const addAccountList = document.getElementById("add_account");
+const menuAccountList = document.getElementById("manage_account");
 document.addEventListener("DOMContentLoaded", () => {
-    const user = JSON.parse(sessionStorage.getItem("user"));
-    const username = document.getElementById("userFullname");
-    const userRole = document.getElementById("userRole");
+   
 
     if (user) {
         username.textContent = user.fullname || "Unknown User"; 
@@ -13,12 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("User data not found in sessionStorage.");
     }
 
+    if(user.rolename === "Admin"){
+        addAccountList.style.display = "none";
+        menuAccountList.style.display = "none";
+    }
+    else{
+        addAccountList.style.display = "";
+        menuAccountList.style.display = "";
+    }
+
 
 logout.addEventListener("click", ()=>{
     const removeToken = "";
     const removeUser = "";
     sessionStorage.setItem("authToken", removeToken);
     sessionStorage.setItem("user", removeUser);
+    position === "HR" ? window.location.replace("./hr-login.html") :
     window.location.replace("./ppss-login.html"); // Redirect without history entry
 });
 

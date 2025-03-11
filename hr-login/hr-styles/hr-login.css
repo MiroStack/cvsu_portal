@@ -9,7 +9,7 @@
 }
 
 body {
-    background: url("../styles/img/bg-cvsu-nc-9.jpg");
+    background: url("/styles/img/bg-cvsu-nc-9.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -137,40 +137,16 @@ featured words
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    height: 100%;
+    justify-content: center;
     padding: 0 4vw;
+    width: 100%;
     transition: left 0.3s ease, opacity 0.3s ease;
 }
 
-/* register form */
-.register-form {
-    position: absolute;
-    left: -50%; /* Off-screen */
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 4vw;
-    transition: left 0.3s ease, opacity 0.3s ease;
-}
-.register-form .form-title{
-    margin-block: 40px 20px;
-}
 
-.login-form, .register-form {
-    position: absolute;
-    left: -50%; /* Off-screen initially */
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 4vw;
-    transition: left 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
-}
+
+
 
 .form-title{
     margin: 40px 0;
@@ -277,15 +253,3 @@ featured words
     transform: scale(0.9);
 }
 
-@media (max-width: 892px) {
-    .form-container{
-        width: 400px;
-    }
-
-    .col-1{
-        display: none;
-    }
-    .col-2{
-        width: 100%;
-    }
-}

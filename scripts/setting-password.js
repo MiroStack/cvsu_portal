@@ -1,4 +1,4 @@
-import { baseUrl, dashboard, getToken } from "./main.js";
+import { baseUrl, dashboard, getToken, hrDashboard } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const loaderContainer = document.querySelector(".container-loader");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         const data = {
             currentPassword: formData.get("currentPassword"),
-            newUsername: formData.get("newUsername"),
+            newUsername: userData.username,
             newPassword: formData.get("password"),
             confirmPassword: formData.get("confirmPassword")
         };
@@ -59,15 +59,21 @@ document.addEventListener("DOMContentLoaded", function () {
                         sessionStorage.setItem("authToken", removeToken);
                         sessionStorage.setItem("user", removeUser);
                         if(userData.position == "PPSS"){
-                        window.location.replace("./ppss-login.html"); // Redirect without history entry
-                        }
+                            window.location.replace("./ppss-login.html");
+                        } // Redirect without history entry
                         else{
-                            window.location.replace("/hr-login/hr-login.html"); // Redirect without history entry
+                            window.location.replace("./hr-login.html");
                         }
-                    }
-                    else{
-                             dashboard();
-                    }
+                       
+                    }else{
+                            if(userData.position == "PPSS"){
+                                 dashboard();
+                             } // Redirect without history entry
+                             else{
+                                hrDashboard();
+                              }
+                                              
+                                      }
                     
 
                 } else {

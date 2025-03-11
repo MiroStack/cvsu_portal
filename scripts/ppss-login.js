@@ -22,9 +22,14 @@ const validateToken = async (authToken)=>{
        const data = await response.json(); // ✅ Call response.json()
         
         if (data) {
+            if(data.position === "PPSS"){
             console.log(data); // ✅ Now this should print
             sessionStorage.setItem("user", JSON.stringify(data));
             dashboard();
+            }else{
+                alert("You are not authorized to access this page");
+                sessionStorage.removeItem("authToken");
+            }
         }
     } catch (error) {
         alert("Error:", error);
@@ -77,10 +82,17 @@ loginBtn.addEventListener("click", async () => {
         });
 
         if (response.ok) {
-            const data = await response.text();
-            console.log("Login Successful:", data);
-            setToken(data);
-            validateToken(data);
+            const data = await response.json();
+           if(data.success){
+            const token = data.token;
+            console.log("Login Successful:", token);
+            setToken(token);
+            validateToken(token);
+           }
+           else{
+            alert(data.message);
+           }
+          
         } else {
             alert("Invalid username or password");
         }

@@ -49,7 +49,7 @@
                 <li >
                     <a href="./dashboard-ppss.html">
                         <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
-                        <span class="title"> Dashboard </span>
+                        <span class="title"> Homepage </span>
                     </a>
                 </li>
                 <li>
@@ -64,10 +64,16 @@
                         <span class="title"> Add Building </span>
                     </a>
                 </li>
-                <li >
+                <li id="add_account">
                     <a href="./add_account.html">
                         <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                         <span class="title"> Add Account </span>
+                    </a>
+                </li>
+                <li id="manage_account">
+                    <a href="./manage_account.html">
+                        <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+                        <span class="title"> Manage Accounts </span>
                     </a>
                 </li>
             </ul>
@@ -81,7 +87,7 @@
                 </li>
                 <li class="logout">
                     <a href="#">
-                        <span class="icon"> <ion-icon name="log-out-outline"></ion-icon> </span>
+                        <span class="icon" > <ion-icon name="log-out-outline"></ion-icon> </span>
                         <span class="title"> Logout </span>
                     </a>
                 </li>
@@ -105,9 +111,31 @@
                 </div>
                 <p>Please wait.</p>
             </div>
+            <div class="settings-list-container py-5" >
+                <ul class="setting-list">
+                    
+                       <a href="/settings_username.html">
+                        <li class="upt-username"><span></span>
+                            <ion-icon name="person-outline"></ion-icon></span>
+                            <span>Change Username</span>
+                        </li>
+                       </a>
+                    
+                       <a href="/settings_password.html">
+                        <li class="upt-password">
+                            <span>
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                            </span>
+                            <span>
+                                Change Password
+                            </span>
+                        </li>    
+                </a>
+                </ul>
+            </div>
 
                 <!-- Username and Password Form -->
-                <form id="settingsForm" class="settings-form">
+                <!-- <form id="settingsForm" class="settings-form">
                     <div class="mb-3">
                         <label for="currentUsername" class="form-label">Current Username</label>
                         <input type="text" class="form-control" name="currentUsername" id="currentUsername" placeholder="Enter your current username" readonly>
@@ -136,7 +164,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Update Settings</button>
-                </form>
+                </form> -->
 
                 <div id="successMessage" class="alert alert-success mt-4" style="display: none;">
                     <strong>Success!</strong> Your settings have been updated.
