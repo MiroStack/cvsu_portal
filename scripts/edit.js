@@ -8,6 +8,9 @@ import { baseUrl, dashboard, getToken } from "./main.js";
   const token = getToken();
   console.log(token);
   try{
+    if (!token) { // This checks for null, undefined, or empty string
+      window.location.href = "./index.html";
+    }
     loadingContainer.style.display = "flex";
     editBuildingForm.style.display = "none";
     const response = await fetch(`${baseUrl}/displayAllBldgAndRooms`,{
@@ -166,32 +169,32 @@ import { baseUrl, dashboard, getToken } from "./main.js";
     })
     
     // Handle building deletion
-    document.getElementById("deleteBuildingBtn").addEventListener("click", async () => {
-      const confirmation = confirm("Are you sure you want to delete this building?")
-      if (confirmation) {
-        const id = sampleBuilding.id;
-        try{
-          loadingContainer.style.display = "flex";
-          editBuildingForm.style.display = "none";
-           const response = await fetch(`${baseUrl}/deleteBuilding?buildingId=${id}`,{
-             method: "DELETE",
-             headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${token}`
-             },
-             mode: "cors", // Enable CORS
-           });
-           const result = await response.json();
-           loadingContainer.style.display = "none";
-           editBuildingForm.style.display = "block";
-           alert(result.message);
-           dashboard();
+    // document.getElementById("deleteBuildingBtn").addEventListener("click", async () => {
+    //   const confirmation = confirm("Are you sure you want to delete this building?")
+    //   if (confirmation) {
+    //     const id = sampleBuilding.id;
+    //     try{
+    //       loadingContainer.style.display = "flex";
+    //       editBuildingForm.style.display = "none";
+    //        const response = await fetch(`${baseUrl}/deleteBuilding?buildingId=${id}`,{
+    //          method: "DELETE",
+    //          headers: {
+    //           "Content-Type": "application/json",
+    //           "Authorization": `Bearer ${token}`
+    //          },
+    //          mode: "cors", // Enable CORS
+    //        });
+    //        const result = await response.json();
+    //        loadingContainer.style.display = "none";
+    //        editBuildingForm.style.display = "block";
+    //        alert(result.message);
+    //        dashboard();
 
-        }catch(e){
-          alert("Error occured: "+e.message)
-        }
-      }
-    })
+    //     }catch(e){
+    //       alert("Error occured: "+e.message)
+    //     }
+    //   }
+    // })
 
     function displayInfo(selectedValue){
           buildingInfo.forEach((building, index)=>{

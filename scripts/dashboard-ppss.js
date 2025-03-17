@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", async () =>{
   console.log(token);
  
     try{
+     
+      if (!token) { // This checks for null, undefined, or empty string
+          window.location.href = "./index.html";
+      }
         loadingContainer.style.display = "flex"
         buildingsContainer.style.display = "none"
         const response = await fetch(`${baseUrl}/displayAllBldgAndRooms`,{
@@ -250,6 +254,8 @@ document.addEventListener("DOMContentLoaded", async () =>{
                   }
 
                   try{
+                     loadingContainer.style.display = "flex"
+                     buildingsContainer.style.display = "none"
                     const response = await fetch(`${baseUrl}/updateRoom`,{
                        method:"PUT",
                        headers: {
@@ -288,6 +294,8 @@ document.addEventListener("DOMContentLoaded", async () =>{
               const roomId = buildings[buildingIndex].floors[floorIndex].rooms[roomIndex].id;
               console.log(roomId);
                   try{
+                    loadingContainer.style.display = "flex"
+                    buildingsContainer.style.display = "none"
                     const response = await fetch(`${baseUrl}/deleteRoom?roomId=${roomId}`,{
                        method:"DELETE",
                        headers: {
@@ -300,6 +308,7 @@ document.addEventListener("DOMContentLoaded", async () =>{
                         const result =  await response.json();
                         alert(result.message);
                         dashboard();
+
                   
                     }
                     else{

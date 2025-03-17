@@ -6,8 +6,12 @@ const userRole = document.getElementById("userRole");
 const position = user.position;
 const addAccountList = document.getElementById("add_account");
 const menuAccountList = document.getElementById("manage_account");
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
-   
+  
 
     if (user) {
         username.textContent = user.fullname || "Unknown User"; 

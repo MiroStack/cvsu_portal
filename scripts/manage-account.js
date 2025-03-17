@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     try{
-    
+        if (!getToken()) { // This checks for null, undefined, or empty string
+            window.location.href = "./index.html";
+          }
        loaderContainer.style.display = "flex";
        usersTable.style.display = "none";
 

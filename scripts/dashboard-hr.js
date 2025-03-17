@@ -10,6 +10,9 @@ const weeklyBtn =  document.getElementById('weeklyBtn');
 const quarterlyBtn =  document.getElementById('quarterlyBtn');
 document.addEventListener('DOMContentLoaded', async()=> {
   try{
+    if (!token) { // This checks for null, undefined, or empty string
+      window.location.href = "./index.html";
+    }
     feedbackTable.style.display = "none";
     feedbackCounterCard.style.display = "none"; 
     loaderContainer.style.display = "flex";

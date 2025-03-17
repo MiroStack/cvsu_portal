@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const loaderContainer = document.querySelector(".container-loader");
     const settingsForm = document.getElementById("settingsForm");
     const token = getToken();
+    if (!token) { // This checks for null, undefined, or empty string
+        window.location.href = "./index.html";
+      }
     document.getElementById("settingsForm").addEventListener("submit", async (event) => {
         event.preventDefault(); // Prevent default form submission
     
