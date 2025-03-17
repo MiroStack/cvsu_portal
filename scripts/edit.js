@@ -8,8 +8,12 @@ import { baseUrl, dashboard, getToken } from "./main.js";
   const token = getToken();
   console.log(token);
   try{
+    document.body.style.display = "none"; 
     if (!token) { // This checks for null, undefined, or empty string
       window.location.href = "./index.html";
+    }
+    else{
+      document.body.style.display ="block";
     }
     loadingContainer.style.display = "flex";
     editBuildingForm.style.display = "none";

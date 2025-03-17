@@ -5,9 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const loaderContainer = document.querySelector(".container-loader");
     const settingsForm = document.getElementById("settingsForm");
     const token = getToken();
+    document.body.style.display = "none"; 
     if (!token) { // This checks for null, undefined, or empty string
         window.location.href = "./index.html";
-      }
+    }
+    else{
+        document.body.style.display = "block"; 
+    }
     document.getElementById("settingsForm").addEventListener("submit", async (event) => {
         event.preventDefault(); // Prevent default form submission
     

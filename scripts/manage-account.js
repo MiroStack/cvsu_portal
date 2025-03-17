@@ -7,9 +7,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     try{
+        document.body.style.display = "none"; 
         if (!getToken()) { // This checks for null, undefined, or empty string
             window.location.href = "./index.html";
-          }
+        }
+        else{
+            document.body.style.display = "block";
+        }
        loaderContainer.style.display = "flex";
        usersTable.style.display = "none";
 

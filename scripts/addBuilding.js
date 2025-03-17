@@ -5,8 +5,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const loaderContainer = document.querySelector(".container-loader");
   const addBuildingForm = document.getElementById("addBuildingForm");
   try{
+    document.body.style.display = "none"; 
     if (!token) { // This checks for null, undefined, or empty string
       window.location.href = "./index.html";
+    }
+    else{
+      document.body.style.display = "block";
     }
     let floorList = ["Ground Floor", "Second Floor", " Third Floor"];
     console.log("addBuilding.js is loaded");

@@ -9,9 +9,13 @@ const allBtn =  document.getElementById('allBtn');
 const weeklyBtn =  document.getElementById('weeklyBtn');
 const quarterlyBtn =  document.getElementById('quarterlyBtn');
 document.addEventListener('DOMContentLoaded', async()=> {
+  document.body.style.display = "none"; 
   try{
     if (!token) { // This checks for null, undefined, or empty string
       window.location.href = "./index.html";
+    }
+    else{
+      document.body.style.display = "block"; 
     }
     feedbackTable.style.display = "none";
     feedbackCounterCard.style.display = "none"; 
