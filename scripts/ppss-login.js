@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // **Login Handler**
 loginBtn.addEventListener("click", async () => {
+    try {
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
     loadingContainer.style.display = "flex";
@@ -65,14 +66,14 @@ loginBtn.addEventListener("click", async () => {
         alert("Please fill in all fields");
         return;
     }
-
-    console.log(typeof jQuery !== "undefined" ? "jQuery is loaded" : "jQuery is not loaded");
+    else{
+        console.log(typeof jQuery !== "undefined" ? "jQuery is loaded" : "jQuery is not loaded");
     const userObject = {
         username: usernameValue,
         password: passwordValue
     };
 
-    try {
+   
         
         const response = await fetch(`${baseUrl}/login`, {
             method: "POST",
@@ -84,18 +85,25 @@ loginBtn.addEventListener("click", async () => {
         if (response.ok) {
             const data = await response.json();
            if(data.success){
+            
+            if(data.token != null){
             const token = data.token;
             console.log("Login Successful:", token);
             setToken(token);
             validateToken(token);
+            }
+            else{
+                alert(data.message);
+            }
+            
            }
-           else{
-            alert(data.message);
-           }
+           
           
-        } else {
-            alert("Invalid username or password");
         }
+        else{
+            alert("Login failed. Please try again.");
+        }
+    }
         loadingContainer.style.display = "none";
         formContainer.style.display = "flex";
     } catch (error) {
