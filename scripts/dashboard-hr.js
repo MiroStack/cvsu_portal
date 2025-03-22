@@ -5,6 +5,7 @@ const feedbackTable = document.querySelector('#feedbackTable');
 const loaderContainer = document.querySelector(".container-loader");
 const feedbackCounterCard = document.getElementById("feedbackCounterCard");
 let status = "all";
+const token = getToken();
 const allBtn =  document.getElementById('allBtn');
 const weeklyBtn =  document.getElementById('weeklyBtn');
 const quarterlyBtn =  document.getElementById('quarterlyBtn');
@@ -20,11 +21,12 @@ document.addEventListener('DOMContentLoaded', async()=> {
     feedbackTable.style.display = "none";
     feedbackCounterCard.style.display = "none"; 
     loaderContainer.style.display = "flex";
+    console.log("Token: "+token);
     const response = await fetch(`${baseUrl}/displayAllFeedback`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`,
+          'Authorization': `Bearer ${token}`,
         },
         mode: 'cors',
     });
