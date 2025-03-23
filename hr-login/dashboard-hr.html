@@ -84,15 +84,7 @@
 
         <div class="container mt-4">
             <h1 style="margin: auto; font-size: 1.5em; text-align: center;">Feedback Dashboard</h1>
-            <div class="d-flex align-items-center mb-4 ">
-                
-                <div class="btn-group ms-auto">
-                    <button type="button" class="btn btn-outline-primary active" id="allBtn">All</button>
-                    <button type="button" class="btn btn-outline-primary" id="weeklyBtn">Weekly</button>
-                    <button type="button" class="btn btn-outline-primary" id="quarterlyBtn">Quarterly</button>
-                    
-                </div>                
-            </div>
+           
             <div class="container-loader">
                 <div class="loader">
                 
@@ -100,7 +92,7 @@
                 <p>Please wait...</p>
             </div>
 
-            <div class="row mb-4" id="feedbackCounterCard">
+            <div class="row mt-5 mt-2" id="feedbackCounterCard">
                 <div class="col-md-3 mb-3">
                     <div class="card">
                         <div class="card-body" >
@@ -111,9 +103,18 @@
                 </div>
                 
             </div>
-
-            <div class="table-responsive">
+            <div class="d-flex align-items-center mt-2 ">
+                
                 <h5 id="tableLabel">Showing: Overall Feedback</h5>
+                <div class="btn-group ms-auto">
+                    <button type="button" class="btn btn-outline-primary active" id="allBtn">All</button>
+                    <button type="button" class="btn btn-outline-primary" id="weeklyBtn">Weekly</button>
+                    <button type="button" class="btn btn-outline-primary" id="quarterlyBtn">Quarterly</button>
+                    
+                </div>                
+            </div>
+            <div class="table-responsive">
+                
                 <table class="table table-striped table-bordered table-hover" id="feedbackTable">
                     <thead>
                         <tr class="table-dark">
