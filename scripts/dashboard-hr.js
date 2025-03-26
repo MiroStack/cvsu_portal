@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', async()=> {
           <td data-node="Purpose of Visit">
             ${feedback.purpose}
           </td>
+          <td data-node="Comment">
+              ${feedback.comment != null ? feedback.comment : ""}
+            </td>
           <td data-node="Rating">${feedback.rating}</td>
         `;
         feedbackTableBody.appendChild(feedbackTableRow);
@@ -87,6 +90,9 @@ function filterFeedback(feedbacks){
             <td data-node="Purpose of Visit">
               ${feedback.purpose}
             </td>
+            <td data-node="Comment">
+              ${feedback.comment}
+            </td>
             <td data-node="Rating">${feedback.rating}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
@@ -109,6 +115,9 @@ function filterFeedback(feedbacks){
             <td data-node="Purpose of Visit">
               ${feedback.purpose}
             </td>
+            <td data-node="Comment">
+               ${feedback.comment != null ? feedback.comment : ""}
+            </td>
             <td data-node="Rating">${feedback.rating}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
@@ -129,6 +138,9 @@ function filterFeedback(feedbacks){
         <td data-node="Purpose of Visit">
           ${feedback.purpose}
         </td>
+        <td data-node="Comment">
+              ${feedback.comment != null ? feedback.comment : ""}
+            </td>
         <td data-node="Rating">${feedback.rating}</td>
       `;
       feedbackTableBody.appendChild(feedbackTableRow);
