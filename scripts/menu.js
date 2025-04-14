@@ -3,6 +3,7 @@ const logout = document.querySelector(".logout")
 const user = JSON.parse(sessionStorage.getItem("user"));
 const username = document.getElementById("userFullname");
 const userRole = document.getElementById("userRole");
+const employeeId = document.getElementById("employeeId");
 const position = user.position;
 const addAccountList = document.getElementById("add_account");
 const menuAccountList = document.getElementById("manage_account");
@@ -15,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (user) {
         username.textContent = user.fullname || "Unknown User"; 
-        userRole.textContent = user.rolename || "No Role"; 
+        userRole.textContent = user.rolename || "No Role";
+        employeeId.textContent = "Emp No: " + user.employeeNo || "Unknown employee"; 
     } else {
         console.error("User data not found in sessionStorage.");
     }

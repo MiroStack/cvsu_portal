@@ -35,7 +35,7 @@
                 <li>
                     <a href="#">
                         <span class="logo">
-                            <img src="/styles/img/mkiosk-yellow-fill.png" alt="Logo" class="logo-image">
+                            <img src="./styles/img/mkiosk-yellow-fill.png" alt="Logo" class="logo-image">
                         </span>
                         <span class="title-page"> M-KIOSK: CvSU Naic </span>
                     </a>
@@ -48,19 +48,31 @@
                 <hr>
 
                 <li >
-                    <a href="/hr-login/dashboard-hr.html">
+                    <a href="./dashboard-ppss.html">
                         <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
-                        <span class="title"> Dashboard </span>
+                        <span class="title"> Homepage </span>
                     </a>
                 </li>
-                <li id="add_account">
-                    <a href="./add_account.html" >
+                <li>
+                    <a href="./edit.html">
+                        <span class="icon"> <ion-icon name="create-outline"></ion-icon> </span>
+                        <span class="title"> Edit Building </span>
+                    </a>
+                </li>
+                <!-- <li >
+                    <a href="./add_building.html">
+                        <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
+                        <span class="title"> Add Building </span>
+                    </a>
+                </li> -->
+                <li id="add_account" >
+                    <a href="./add_account.html">
                         <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                         <span class="title"> Add Account </span>
                     </a>
-                </li>
-                <li id="manage_account">
-                    <a href="./manage_account.html" >
+                </li >
+                <li class="active-page" id="manage_account">
+                    <a href="./manage_account.html">
                         <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
                         <span class="title"> Manage Accounts </span>
                     </a>
@@ -68,24 +80,22 @@
             </ul>
 
             <div class="logout-container">
-                <li class="settings active-page" >
-                    <a href="/hr-login/settings.html">
+                <li class="settings">
+                    <a href="./settings.html">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                         <span class="title">Settings</span>
                     </a>
                 </li>
-
                 <li class="logout">
                     <a href="#">
                         <span class="icon"> <ion-icon name="log-out-outline"></ion-icon> </span>
                         <span class="title"> Logout </span>
                     </a>
                 </li>
+              
             </div>
         </div>
     </div>
-
-
     <!-- main -->
     <div class="main">
         <div class="topbar">
@@ -95,33 +105,33 @@
          </div>  
         <!-- Settings Form -->
         <div class="settings-container">
-            <h1 class="text-center">Update Your Password</h1>
+            <h1 class="text-center">Add Recovery Password</h1>
             <div class="container-loader">
                 <div class="loader">
                 
                 </div>
                 <p>Please wait.</p>
             </div>
-   
-
+ 
                 <!-- Username and Password Form -->
                 <form id="settingsForm" class="settings-form my-5">
-                    
                     <div class="mb-3">
-                        <label for="currentPassword" class="form-label">Current Password</label>
-                        <input type="password" class="form-control" name="currentPassword" id="currentPassword" placeholder="Enter your current password" required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="password" class="form-label">New Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your new password" required>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm your new password" required>
+                        <label for="pin" class="form-label">Pin</label>
+                        <input type="password" maxlength="6" inputmode="numeric"  class="form-control" name="pin" id="pin" placeholder="Enter your 6 digit pin password" oninput="validateNumericInput(this)" required>
+                       
                     </div>
 
+                    <div class="mb-3">
+                        <label for="confirmPin" class="form-label">Current Pin</label>
+                        <input type="password" maxlength="6" inputmode="numeric"  class="form-control" name="confirmPin" id="confirmPin" placeholder="Confirm your pin password" oninput="validateNumericInput(this)" required>
+                    </div>
+                    
+                 
                     <button type="submit" class="btn btn-primary w-100">Update Settings</button>
                 </form>
 
@@ -137,8 +147,13 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
     <!-- script -->
-    <script type="module" src="/scripts/setting-password.js"></script>
+    <script type="module" src="/scripts/setting-addrecovery.js"></script>
     <script type="module" src="/scripts/main.js"></script>
     <script src="/scripts/menu.js"></script>
+    <script>
+        function validateNumericInput(input) {
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
+    </script>
 </body>
 </html>
