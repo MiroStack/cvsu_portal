@@ -87,10 +87,10 @@ loginBtn.addEventListener("click", async () => {
            if(data.success){
             
             if(data.token != null){
-            const token = data.token;
-            console.log("Login Successful:", token);
-            setToken(token);
-            validateToken(token);
+                const token = data.token;
+                console.log("Login Successful:", token);
+                setToken(token);
+                validateToken(token);
             }
             else{
                 alert(data.message);
