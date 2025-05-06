@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', async()=> {
     });
     if(response.status === 200){
       const data = await response.json();
+    
       feedbacks = data;
+   
       console.log(feedbacks);
       const totalFeedback = feedbacks.length;
       const feedbackCount = document.getElementById('totalFeedback');
@@ -52,7 +54,8 @@ document.addEventListener('DOMContentLoaded', async()=> {
           <td data-node="Comment">
               ${feedback.comment != null ? feedback.comment : ""}
             </td>
-          <td data-node="Rating">${feedback.rating}</td>
+            
+          <td data-node="Rating">${feedback.rating.toFixed(1)}</td>
         `;
         feedbackTableBody.appendChild(feedbackTableRow);
       });
