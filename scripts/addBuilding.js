@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     else{
       document.body.style.display = "block";
     }
-    let floorList = ["Ground Floor", "Second Floor", " Third Floor"];
+    let floorList = ["Ground Floor", "Second Floor", "Third Floor"];
     console.log("addBuilding.js is loaded");
 
 

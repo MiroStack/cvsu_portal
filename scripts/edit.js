@@ -54,7 +54,7 @@ import { baseUrl, dashboard, getToken } from "./main.js";
         selectBuildingList.appendChild(option);
     });
 
-    let floorList = ["Ground Floor", "Second Floor", " Third Floor"];
+    let floorList = ["Ground Floor", "Second Floor", "Third Floor"];
     let sampleBuilding = {
       id: 0,
       name: "",
