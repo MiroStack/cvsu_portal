@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async()=> {
               ${feedback.comment != null ? feedback.comment : ""}
             </td>
             
-          <td data-node="Rating">${feedback.rating.toFixed(1)}</td>
+          <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
         `;
         feedbackTableBody.appendChild(feedbackTableRow);
       });
@@ -96,7 +96,7 @@ function filterFeedback(feedbacks){
             <td data-node="Comment">
               ${feedback.comment}
             </td>
-            <td data-node="Rating">${feedback.rating}</td>
+            <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
         }
@@ -121,7 +121,7 @@ function filterFeedback(feedbacks){
             <td data-node="Comment">
                ${feedback.comment != null ? feedback.comment : ""}
             </td>
-            <td data-node="Rating">${feedback.rating}</td>
+            <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
         }
@@ -144,7 +144,7 @@ function filterFeedback(feedbacks){
         <td data-node="Comment">
               ${feedback.comment != null ? feedback.comment : ""}
             </td>
-        <td data-node="Rating">${feedback.rating}</td>
+        <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
       `;
       feedbackTableBody.appendChild(feedbackTableRow);
     });
