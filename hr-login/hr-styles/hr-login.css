@@ -39,6 +39,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
     width: 55%;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(30px);
