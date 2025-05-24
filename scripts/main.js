@@ -1,5 +1,5 @@
 // export const baseUrl = "https://cvsunaicapi-production.up.railway.app/cvsu";
-export const baseUrl = "http://145.79.13.83:8081/cvsu";
+export const baseUrl = "https://cvsu.duckdns.org/cvsu";
 // export const baseUrl = "http://localhost:8080/cvsu";
 export const dashboard = () =>{
     window.location.href = "./dashboard-ppss.html"
