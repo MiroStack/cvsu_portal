@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
        usersTable.style.display = "none";
 
        const userData = JSON.parse(sessionStorage.getItem('user'));
-       const position = userData.position; 
+       const id = userData.id; 
 
-       const response = await fetch(`${baseUrl}/fetchUsers?position=${position}`,{
+       const response = await fetch(`${baseUrl}/fetchUsers?id=${id}`,{
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

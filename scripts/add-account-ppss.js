@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", ()=>  {
             username: formData.get("username"),
             password: formData.get("password"),
             confirmPassword: formData.get("confirm_password"),
+            position:formData.get("position"),
         };
 
        if(data.password === data.confirmPassword){
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", ()=>  {
             lastname: data.lastname,
             username: data.username,
             password: data.password,
+            position: data.position,
             createdById: userData.id
         });
         console.log(queryParams.canCreateAccount);

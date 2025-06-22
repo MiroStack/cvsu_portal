@@ -38,7 +38,7 @@
                 </div>
                 <hr>
 
-                <li >
+                <li id="homepage">
                     <a href="/hr-login/dashboard-hr.html">
                         <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
                         <span class="title"> Homepage </span>
@@ -114,6 +114,12 @@
             
                     <label for="confirm_password" class="form-label">Confirm Password:</label>
                     <input type="password"  name="confirm_password" id="confirm_password" class="form-control" required>
+
+                    <label for="position" class="form-label mt-4">Position</label>
+                     <select id="position" name="position">
+                        <option value="PPSS">PPSS</option>
+                        <option value = "ODASS">ODASS</option>
+                    </select>
             
                     <button type="submit" class="btn btn-primary my-3 w-100">Add Account</button>
                 </div>

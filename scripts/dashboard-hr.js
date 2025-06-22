@@ -1,5 +1,6 @@
-import { baseUrl, dashboard, getToken } from "./main.js";
+import { baseUrl, dashboard, getToken, exportJsonToExcel } from "./main.js";
 let feedbacks = {};
+let exportFeedbackList = {};
 
 const feedbackTable = document.querySelector('#feedbackTable');
 const loaderContainer = document.querySelector(".container-loader");
@@ -9,6 +10,7 @@ const token = getToken();
 const allBtn =  document.getElementById('allBtn');
 const weeklyBtn =  document.getElementById('weeklyBtn');
 const quarterlyBtn =  document.getElementById('quarterlyBtn');
+const exportBtn = document.getElementById('export_btn');
 document.addEventListener('DOMContentLoaded', async()=> {
   document.body.style.display = "none"; 
   try{
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async()=> {
       const data = await response.json();
     
       feedbacks = data;
-   
+      exportFeedbackList = feedbacks;
       console.log(feedbacks);
       const totalFeedback = feedbacks.length;
       const feedbackCount = document.getElementById('totalFeedback');
@@ -50,6 +52,9 @@ document.addEventListener('DOMContentLoaded', async()=> {
           <td data-node="Role">${feedback.respondentRole}</td>
           <td data-node="Purpose of Visit">
             ${feedback.purpose}
+          </td>
+          <td data-node="Attending Staff">
+            ${feedback.attendingStaff?feedback.attendingStaff:""}
           </td>
           <td data-node="Comment">
               ${feedback.comment != null ? feedback.comment : ""}
@@ -76,6 +81,7 @@ document.addEventListener('DOMContentLoaded', async()=> {
 function filterFeedback(feedbacks){
   const feedbackTableBody = document.querySelector('#feedbackTableBody');
   feedbackTableBody.innerHTML = "";
+  
   if(status === "quarterly"){
       const date = new Date();
       const quarter = new Date();
@@ -101,6 +107,7 @@ function filterFeedback(feedbacks){
           feedbackTableBody.appendChild(feedbackTableRow);
         }
       });
+      exportFeedbackList = feedbacks;
   }
   else if(status === "weekly"){
      const date = new Date();
@@ -126,6 +133,7 @@ function filterFeedback(feedbacks){
           feedbackTableBody.appendChild(feedbackTableRow);
         }
       });
+      exportFeedbackList = feedbacks;
       
   }
   else{
@@ -148,6 +156,7 @@ function filterFeedback(feedbacks){
       `;
       feedbackTableBody.appendChild(feedbackTableRow);
     });
+    exportFeedbackList = feedbacks;
   }
  
   feedbackTable.style.display = "";
@@ -155,7 +164,10 @@ function filterFeedback(feedbacks){
   feedbackCounterCard.style.display = ""; 
 }
 
+exportBtn.addEventListener('click', () => {
 
+  exportJsonToExcel(exportFeedbackList);
+});
 allBtn.addEventListener('click', ()=>{
   status = "all";
   allBtn.classList.add('active');

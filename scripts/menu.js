@@ -5,8 +5,11 @@ const username = document.getElementById("userFullname");
 const userRole = document.getElementById("userRole");
 const employeeId = document.getElementById("employeeId");
 const position = user.position;
+const rolename = user.rolename;
 const addAccountList = document.getElementById("add_account");
 const menuAccountList = document.getElementById("manage_account");
+const homepageList = document.getElementById("homepage");
+const editList = document.getElementById("edit_building");
 
 
 
@@ -15,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
     if (user) {
+        username.style.textAlign = "center";
         username.textContent = user.fullname || "Unknown User"; 
         userRole.textContent = user.rolename || "No Role";
         employeeId.textContent = "Emp No: " + user.employeeNo || "Unknown employee"; 
@@ -29,6 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     else{
         addAccountList.style.display = "";
         menuAccountList.style.display = "";
+        homepageList.style.display = "none";
+        if(editList){
+            editList.style.display = "none";
+        }
     }
 
 
@@ -37,7 +45,8 @@ logout.addEventListener("click", ()=>{
     const removeUser = "";
     sessionStorage.setItem("authToken", removeToken);
     sessionStorage.setItem("user", removeUser);
-    position === "HR" ? window.location.replace("./hr-login.html") :
+    position === "ODASS" ? window.location.replace("./hr-login.html") :
+    rolename === "SuperAdmin"? window.location.replace("../index.html"):
     window.location.replace("./ppss-login.html"); // Redirect without history entry
 });
 

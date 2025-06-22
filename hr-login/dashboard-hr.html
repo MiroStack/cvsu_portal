@@ -34,7 +34,7 @@
                 </div>
                 <hr>
 
-                <li class="active-page">
+                <li id="homepage" class="active-page">
                     <a href="/hr-login/dashboard-hr.html">
                         <span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
                         <span class="title"> Homepage </span>
@@ -86,6 +86,7 @@
         <div class="container mt-4">
             <h1 style="margin: auto; font-size: 1.5em; text-align: center;">Feedback Dashboard</h1>
            
+            
             <div class="container-loader">
                 <div class="loader">
                 
@@ -111,8 +112,10 @@
                     <button type="button" class="btn btn-outline-primary active" id="allBtn">All</button>
                     <button type="button" class="btn btn-outline-primary" id="weeklyBtn">Weekly</button>
                     <button type="button" class="btn btn-outline-primary" id="quarterlyBtn">Quarterly</button>
+                     
                     
-                </div>                
+                </div>    
+                <button id="export_btn" class="btn btn-success mx-3">Export Report</button>            
             </div>
             <div class="table-responsive">
                 
@@ -123,6 +126,7 @@
                             <th>Date & Time</th>
                             <th>Role</th>
                             <th>Purpose of Visit</th>
+                            <th>Attending Staff</th>
                             <th>Comment</th>
                             <th>Rating</th>
                         </tr>
@@ -141,6 +145,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- Link to external JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script type="module" src="/scripts/main.js"></script>
     <script type="module" src="/scripts/menu.js"></script>
     <script type="module" src="/scripts/dashboard-hr.js"></script>
