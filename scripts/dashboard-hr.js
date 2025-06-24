@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async()=> {
             ${feedback.purpose}
           </td>
           <td data-node="Attending Staff">
-            ${feedback.attendingStaff?feedback.attendingStaff:""}
+            ${feedback.attendingStaff != null?feedback.attendingStaff:""}
           </td>
           <td data-node="Comment">
               ${feedback.comment != null ? feedback.comment : ""}
