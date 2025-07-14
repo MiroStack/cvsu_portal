@@ -165,8 +165,10 @@ function filterFeedback(feedbacks){
 }
 
 exportBtn.addEventListener('click', () => {
-
-  exportJsonToExcel(exportFeedbackList);
+  sessionStorage.setItem('exportFeedbackType', status);
+  sessionStorage.setItem('exportFeedbackList', JSON.stringify(exportFeedbackList));
+  window.location.href = "./pdf_report.html";
+  //exportJsonToExcel(exportFeedbackList);
 });
 allBtn.addEventListener('click', ()=>{
   status = "all";
