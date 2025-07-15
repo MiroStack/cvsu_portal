@@ -1,6 +1,6 @@
 import { baseUrl, dashboard, getToken, exportJsonToExcel } from "./main.js";
 let feedbacks = {};
-let exportFeedbackList = {};
+let exportFeedbackList = [];
 
 const feedbackTable = document.querySelector('#feedbackTable');
 const loaderContainer = document.querySelector(".container-loader");
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async()=> {
 function filterFeedback(feedbacks){
   const feedbackTableBody = document.querySelector('#feedbackTableBody');
   feedbackTableBody.innerHTML = "";
-  
+  let filteredFeedbacks = [];
   if(status === "quarterly"){
       const date = new Date();
       const quarter = new Date();
@@ -99,15 +99,21 @@ function filterFeedback(feedbacks){
             <td data-node="Purpose of Visit">
               ${feedback.purpose}
             </td>
+              <td data-node="Attending Staff">
+            ${feedback.attendingStaff?feedback.attendingStaff:""}
+          </td>
+       
             <td data-node="Comment">
               ${feedback.comment}
             </td>
             <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
+             filteredFeedbacks.push(feedback);
+           exportFeedbackList = filteredFeedbacks;
         }
       });
-      exportFeedbackList = feedbacks;
+     
   }
   else if(status === "weekly"){
      const date = new Date();
@@ -125,15 +131,20 @@ function filterFeedback(feedbacks){
             <td data-node="Purpose of Visit">
               ${feedback.purpose}
             </td>
+            <td data-node="Attending Staff">
+            ${feedback.attendingStaff?feedback.attendingStaff:""}
+          </td>
             <td data-node="Comment">
                ${feedback.comment != null ? feedback.comment : ""}
             </td>
             <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
           `;
           feedbackTableBody.appendChild(feedbackTableRow);
+          filteredFeedbacks.push(feedback);
+           exportFeedbackList = filteredFeedbacks;
         }
       });
-      exportFeedbackList = feedbacks;
+     
       
   }
   else{
@@ -149,14 +160,19 @@ function filterFeedback(feedbacks){
         <td data-node="Purpose of Visit">
           ${feedback.purpose}
         </td>
+        <td data-node="Attending Staff">
+            ${feedback.attendingStaff?feedback.attendingStaff:""}
+          </td>
         <td data-node="Comment">
               ${feedback.comment != null ? feedback.comment : ""}
             </td>
         <td data-node="Rating">${feedback.rating.toFixed(2)}</td>
       `;
       feedbackTableBody.appendChild(feedbackTableRow);
+      filteredFeedbacks.push(feedback);
+           exportFeedbackList = filteredFeedbacks;
     });
-    exportFeedbackList = feedbacks;
+    
   }
  
   feedbackTable.style.display = "";
@@ -164,13 +180,11 @@ function filterFeedback(feedbacks){
   feedbackCounterCard.style.display = ""; 
 }
 
-exportBtn.addEventListener('click', () => {
-  sessionStorage.setItem('exportFeedbackType', status);
-  sessionStorage.setItem('exportFeedbackList', JSON.stringify(exportFeedbackList));
-  window.location.href = "./pdf_report.html";
-  //exportJsonToExcel(exportFeedbackList);
-});
+
 allBtn.addEventListener('click', ()=>{
+  exportFeedbackList = null;
+  sessionStorage.setItem('exportFeedbackList',null);
+  sessionStorage.setItem('exportFeedbackType',null);
   status = "all";
   allBtn.classList.add('active');
   weeklyBtn.classList.remove('active');
@@ -179,6 +193,9 @@ allBtn.addEventListener('click', ()=>{
 });
 
 weeklyBtn.addEventListener('click', ()=>{
+  exportFeedbackList = null;
+  sessionStorage.setItem('exportFeedbackList',null);
+  sessionStorage.setItem('exportFeedbackType',null);
   status = "weekly";
   weeklyBtn.classList.add('active');
   allBtn.classList.remove('active');
@@ -187,9 +204,19 @@ weeklyBtn.addEventListener('click', ()=>{
 });
 
 quarterlyBtn.addEventListener('click', ()=>{
+  exportFeedbackList = null;
+    sessionStorage.setItem('exportFeedbackList',null);
+  sessionStorage.setItem('exportFeedbackType',null);
   status = "quarterly";
   quarterlyBtn.classList.add('active');
   weeklyBtn.classList.remove('active');
   allBtn.classList.remove('active');
   filterFeedback(feedbacks);
+});
+exportBtn.addEventListener('click', () => {
+  console.log("Exporting feedbacks..."+exportFeedbackList);
+  sessionStorage.setItem('exportFeedbackType', status);
+  sessionStorage.setItem('exportFeedbackList', JSON.stringify(exportFeedbackList));
+  window.location.href = "./pdf_report.html";
+  //exportJsonToExcel(exportFeedbackList);
 });

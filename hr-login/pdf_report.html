@@ -78,72 +78,23 @@
         width: 100px;
         height: 1px;
         flex: 2;
+        position: relative;
+      }
+      .line > span{
+        width: auto;
+        position: absolute;
+        top: -18px;
+        left: 1%;
+        font-size: 14px;
+        color: black;
+        padding: 0 4px;
+        font-weight: 600;
       }
     </style>
   </head>
   <body>
      <button id="download_pdf_btn" style="cursor:pointer; margin-top: 16px; height: 3em; background-color: green; color: white; border-radius: 8px; padding: 8px;">Download PDF</button>
-    <div class="print-container">
-      <div
-        style="
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        "
-      >
-        <div style="margin-right: 18px; position: absolute; left: 25%">
-          <img
-            src="../styles/img/favicon/cvsu-logo.png"
-            alt="CVSU Logo"
-            style="width: 56px; height: 56px; display: block; margin: 0 auto"
-          />
-        </div>
-        <div style="text-align: center">
-          <p style="font-size: 12px">Republic of the Philippines</p>
-          <h1 style="font-size: 20px">Cavite State University</h1>
-          <p style="font-size: 14px">Naic, Cavite</p>
-        </div>
-      </div>
-
-      <h2 class="header">Feedback Report</h2>
-
-      <div class="info-line">
-        <span>Period Covered:</span>
-        <div class="line"></div>
-        <span>Total Number of Clients:</span>
-        <div class="line"></div>
-      </div>
-
-      <div class="table-responsive">
-        <table id="printFeedbackTable">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date & Time</th>
-              <th>Role</th>
-              <th>Purpose of Visit</th>
-              <th>Attending Staff</th>
-              <th>Comment</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody id="feedbackTableBody">
-            <!-- Feedback data will be inserted here by JavaScript -->
-          </tbody>
-        </table>
-      </div>
-      <div class="info-line2" style="margin-top: 50px;">
-        <div>
-           <hr>        
-        <span>Prepared by:</span>
-        </div>
-        <div>
-          <hr>
-        <span>Signature:</span>
-        </div>
-        
-    </div>
+   
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
